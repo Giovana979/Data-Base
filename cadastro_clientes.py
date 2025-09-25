@@ -126,6 +126,7 @@ def iniciar():
     tree.heading("Nome", text="Nome")
     tree.heading("Email", text="Email")
     tree.heading("Telefone", text="Telefone")
-    tree.grid(row=4, column=0, columnspan=3, padx=10, pady=10)
+    tree.heading("Senha", text="Senha")
+    tree.grid(row=5, column=0, columnspan=3, padx=10, pady=10)
 
     listar()
