@@ -37,8 +37,11 @@ def registrar_pagamento():
     try:
         conexao = conectar()
         cursor = conexao.cursor()
-        cursor.execute("INSERT INTO Pagamento (Pedidos_idPedidos, metodo, status, valor, dataPagamento, info) VALUES (%s, %s, %s, %s, %s, %s)",
-                       (pedido_id, metodo, "CONFIRMADO", valor, datetime.now(), None))
+        cursor.execute("""
+    INSERT INTO pagamento (Pedidos_idPedidos, tipo, status, valor, data)
+    VALUES (%s, %s, %s, %s, %s)
+""", (pedido_id, metodo, "CONFIRMADO", valor, datetime.now()))
+
         cursor.execute("UPDATE Pedidos SET status=%s WHERE idPedidos=%s", ("PAGO", pedido_id))
         conexao.commit()
     except Exception as e:

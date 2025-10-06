@@ -51,7 +51,16 @@ def consultar_pedidos():
     _call_module_start("consulta_pedidos")
 
 def consultar_produto():
-    _call_module_start("consultar_produto")
+    _call_module_start("consulta_produto")
+
+def cadastrar_endereco():
+    _call_module_start("cadastro_endereco")
+
+def cadastro_item_pedido():
+    _call_module_start("cadastro_itempedido")
+
+def cadastro_pagamento():
+    _call_module_start("cadastro_pagamento")
 
 def sair():
     root.quit()
@@ -93,6 +102,9 @@ menu_pedido = tk.Menu(menu_bar, tearoff=0)
 menu_bar.add_cascade(label="Pedido", menu=menu_pedido)
 menu_pedido.add_command(label="Cadastrar Pedido", command=cadastrar_pedido)
 menu_pedido.add_command(label="Consultar Pedidos", command=consultar_pedidos)
+menu_pedido.add_command(label="Cadastrar Endereço", command=cadastrar_endereco)
+menu_pedido.add_command(label="Itens do Pedido", command=cadastro_item_pedido)
+menu_pedido.add_command(label="Cadastrar Pagamento", command=cadastro_pagamento)
 
 # Menu "Sair" (comando direto na barra)
 menu_bar.add_command(label="Sair", command=sair)
