@@ -2,7 +2,7 @@ import tkinter as tk
 from tkinter import ttk, messagebox
 import mysql.connector
 
-# ================== FUNÇÕES DE BANCO ==================
+
 def conectar():
     return mysql.connector.connect(
         host="localhost",
@@ -29,7 +29,6 @@ def carregar_produtos():
     conexao.close()
     return produtos
 
-# ================== FUNÇÕES DA INTERFACE ==================
 def atualizar_total():
     total = 0
     for item in tree.get_children():
@@ -88,7 +87,7 @@ def salvar_pedido():
         cursor.close()
         conexao.close()
 
-# ================== FUNÇÃO INICIAR ==================
+
 def iniciar():
     global root, combo_produto, entry_quantidade, tree, label_total, dict_produtos
 
@@ -122,6 +121,6 @@ def iniciar():
 
     root.mainloop()
 
-# ================== CHAMADA PRINCIPAL ==================
+
 if __name__ == "__main__":
     iniciar()

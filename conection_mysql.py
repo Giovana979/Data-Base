@@ -1,5 +1,5 @@
 import mysql.connector
-#  Conectar ao banco
+
 conexao = mysql.connector.connect(
  host="localhost",
  user="root",
@@ -7,7 +7,7 @@ conexao = mysql.connector.connect(
  database="ecommerce"
 )
 cursor = conexao.cursor()
-#  Criar tabela
+
 cursor.execute("""
 CREATE TABLE IF NOT EXISTS funcionarios (
  id INT AUTO_INCREMENT PRIMARY KEY, nome VARCHAR(100),
@@ -15,7 +15,7 @@ CREATE TABLE IF NOT EXISTS funcionarios (
  salario DECIMAL(10,2)
 )
 """)
-#  Inserir dados
+
 cursor.execute("""
 INSERT INTO funcionarios (nome, cargo, salario)
 VALUES (%s, %s, %s)
@@ -26,7 +26,7 @@ cursor.execute("SELECT * FROM funcionarios")
 for funcionario in cursor.fetchall():
  print(funcionario)
 print("====================================================")
-# Atualizar dados
+
 cursor.execute("""
 UPDATE funcionarios
 SET salario = %s
@@ -38,17 +38,17 @@ cursor.execute("SELECT * FROM funcionarios")
 for funcionario in cursor.fetchall():
  print(funcionario)
 print("====================================================")
-# Excluir dados
+
 cursor.execute("""
 DELETE FROM funcionarios
 WHERE nome = %s
 """, ("Ana Souza",))
 conexao.commit()
-# Listar dados e verificar que Ana foi apagada:
+
 cursor.execute("SELECT * FROM funcionarios")
 for funcionario in cursor.fetchall():
  print(funcionario)
 print("====================================================")
-# Fechar conexão
+
 cursor.close()
 conexao.close()

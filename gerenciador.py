@@ -1,6 +1,6 @@
 import mysql.connector
 
-# Função para conectar ao banco
+
 def conectar():
     return mysql.connector.connect(
         host="localhost",
@@ -9,7 +9,7 @@ def conectar():
         database="ecommerce"
     )
 
-# Inserir funcionário
+
 def inserir_funcionario():
     nome = input("Nome: ")
     cargo = input("Cargo: ")
@@ -25,7 +25,7 @@ def inserir_funcionario():
     cursor.close()
     conexao.close()
 
-# Atualizar funcionário
+
 def atualizar_funcionario():
     id_func = int(input("ID do funcionário a atualizar: "))
     novo_salario = float(input("Novo salário: "))
@@ -41,7 +41,7 @@ def atualizar_funcionario():
     cursor.close()
     conexao.close()
 
-# Remover funcionário
+
 def remover_funcionario():
     id_func = int(input("ID do funcionário a remover: "))
     conexao = conectar()
@@ -55,7 +55,7 @@ def remover_funcionario():
     cursor.close()
     conexao.close()
 
-# Listar funcionários
+
 def listar_funcionarios():
     conexao = conectar()
     cursor = conexao.cursor()
@@ -67,7 +67,7 @@ def listar_funcionarios():
     cursor.close()
     conexao.close()
 
-# Menu principal
+
 def menu():
     while True:
         print("\n=== MENU FUNCIONÁRIOS ===")
@@ -91,5 +91,4 @@ def menu():
         else:
             print("Opção inválida. Tente novamente.")
 
-# Executar o menu
 menu()
